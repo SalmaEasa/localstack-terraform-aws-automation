@@ -1,0 +1,15 @@
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.backup
+crash.log
+.terraform.lock.hcl
+
+# LocalStack / AWS
+.localstack/
+.aws/
+
+# Editor / OS
+.vscode/
+*.swp
+.DS_Store
