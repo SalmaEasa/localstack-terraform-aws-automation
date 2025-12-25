@@ -74,8 +74,8 @@ resource "aws_instance" "webserver1" {
   instance_type = "t2.micro"
   vpc_security_group_ids = [aws_security_group.mysg.id]
   subnet_id = aws_subnet.subnet1.id
-  #user_data = base64encode(file("userdata.sh"))
-  user_data = "#!/bin/bash\necho 'Hello from server' > /var/tmp/hello.txt"
+  user_data = base64encode(file("userdata.sh"))
+
 }
 
 resource "aws_instance" "webserver2" {
@@ -83,8 +83,8 @@ resource "aws_instance" "webserver2" {
   instance_type = "t2.micro"
   vpc_security_group_ids = [aws_security_group.mysg.id]
   subnet_id = aws_subnet.subnet2.id
-  #user_data = base64encode(file("userdata1.sh"))
-  user_data = "#!/bin/bash\necho 'Hello from server 2' > /var/tmp/hello.txt"
+  user_data = base64encode(file("userdata1.sh"))
+
 }
 
 resource "aws_lb" "myalb"{
@@ -132,4 +132,10 @@ resource "aws_lb_listener" "listener" {
 }
 output "loadbalancerdns" {
     value = aws_lb.myalb.dns_name
+}
+output "web_servers_ips" {
+  value = [
+    aws_instance.webserver1.public_ip,
+    aws_instance.webserver2.public_ip
+  ]
 }
