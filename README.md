@@ -24,7 +24,7 @@ This project automates the deployment of a highly available web architecture usi
 ### 2. Start LocalStack
 Run LocalStack via Docker:
 ```bash
-docker run --rm -it -p 4566:4566 -p 4571:4571 localstack/localstack
+docker run -d -p 4566:4566 -p 4571:4571 localstack/localstack
 3. Initialize & Apply
 Bash
 

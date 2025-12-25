@@ -22,6 +22,7 @@ provider "aws" {
     s3             = "http://s3.localhost.localstack.cloud:4566"
     elb            = "http://localhost:4566"
     iam            = "http://localhost:4566"
+    sts            = "http://127.0.0.1:4566"
 
   }
 }
